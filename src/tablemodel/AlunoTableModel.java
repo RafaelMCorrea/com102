@@ -14,7 +14,7 @@ import model.Aluno;
  *
  * @author aluno
  */
-public class AlunoTableModel extends AbstractTableModel{
+public class AlunoTableModel extends AbstractTableModel {
 
     private List<Aluno> alunos;
 
@@ -26,11 +26,7 @@ public class AlunoTableModel extends AbstractTableModel{
         this();
         this.alunos = alunos;
     }
-    
-    
-    
-    
-    
+
     @Override
     public int getRowCount() {
         return alunos.size();
@@ -38,12 +34,49 @@ public class AlunoTableModel extends AbstractTableModel{
 
     @Override
     public int getColumnCount() {
-        return 1;
+        return 6;
+    }
+
+    @Override
+    public String getColumnName(int column) {
+        switch (column) {
+            case 0:
+                return "Nome";
+            case 1:
+                return "Matricula";
+            case 2:
+                return "Email";
+            case 3:
+                return "Endereço";
+            case 4:
+                return "Fone";
+            case 5:
+                return "Curso";
+            default:
+                return "";
+
+        }
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        return alunos.get(rowIndex);
+        switch(columnIndex){
+            case 0:
+                return alunos.get(rowIndex).getNome();
+            case 1:
+                return alunos.get(rowIndex).getMatricula();
+            case 2:
+                return alunos.get(rowIndex).getEmail();
+            case 3:
+                return alunos.get(rowIndex).getEndereco();
+            case 4:
+                return alunos.get(rowIndex).getFone();
+            case 5:
+                return alunos.get(rowIndex).getCurso();
+            default:
+                return "";
+                
+        }
     }
-    
+
 }
