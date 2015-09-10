@@ -78,5 +78,12 @@ public class AlunoTableModel extends AbstractTableModel {
                 
         }
     }
+    
+    public Aluno getAluno(int pos){
+        if(pos >= alunos.size()){
+            return null;
+        }
+        return alunos.get(pos);
+    }
 
 }
