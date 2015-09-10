@@ -153,6 +153,11 @@ public class JFrmServidor extends javax.swing.JFrame {
         jBtnExcluir.setText("Excluir");
         jBtnExcluir.setEnabled(false);
         jBtnExcluir.setPreferredSize(new java.awt.Dimension(120, 40));
+        jBtnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnExcluirActionPerformed(evt);
+            }
+        });
 
         jBtnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/2702_32x32.png"))); // NOI18N
         jBtnCancelar.setText("Cancelar");
@@ -349,6 +354,16 @@ public class JFrmServidor extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jBtnSalvarActionPerformed
 
+    private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
+        JOptionPane.showConfirmDialog(this,"asdasda");
+        ServidorController sc = new ServidorController();
+        int erro = sc.excluir(idServidor);
+        if(erro >-1){
+            JOptionPane.showConfirmDialog(this,"Erro nro "+erro+
+                    "Controle de Estoque ");
+        }
+    }//GEN-LAST:event_jBtnExcluirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -381,7 +396,7 @@ public class JFrmServidor extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 //TODO estou com servidor novo
-                new JFrmServidor(new Servidor()).setVisible(true);
+                new JFrmServidor(null).setVisible(true);
             }
         });
     }
